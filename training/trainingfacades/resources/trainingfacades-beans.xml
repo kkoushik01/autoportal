@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved. -->
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="beans.xsd">
+
+	<bean
+		class="de.hybris.platform.commercefacades.product.data.ProductData">
+		<property name="genders"
+			type="java.util.List&lt;my.training.facades.product.data.GenderData>" />
+	</bean>
+
+	<bean class="my.training.facades.product.data.GenderData">
+		<property name="code" type="String" />
+		<property name="name" type="String" />
+	</bean>
+
+
+
+
+
+
+
+
+	<bean class="my.training.facades.dealer.data.DealerData">
+		<property name="dealerCode" type="String" />
+		<property name="dealerName" type="String" />
+		<property name="recalls" type="java.util.List&lt;my.training.facades.recall.data.RecallData>" />
+		
+	</bean>
+	
+	
+
+	<bean class="my.training.facades.dealer.data.DealerListData">
+		<property name="dealers" type="java.util.List&lt;my.training.facades.dealer.data.DealerData>" />
+		
+		<property name="recalls" type="java.util.List&lt;my.training.facades.recall.data.RecallData>" />
+		
+	</bean>
+
+
+
+    <bean class="my.training.facades.dealer.data.DealerCodeByIdData">
+	    <property name="dealerCode" type="my.training.facades.dealer.data.DealerData" />
+		<property name="dealerName" type="my.training.facades.dealer.data.DealerData" />
+		
+		<property name="recalls" type="java.util.List&lt;my.training.facades.recall.data.RecallData>" />
+		
+	</bean>
+
+
+
+
+
+
+
+
+
+	<bean class="my.training.facades.recall.data.RecallData">
+		<property name="recallCode" type="String" />
+		<property name="vehicleMake" type="String" />
+		<property name="recallReason" type="String" />
+		<property name="chassisNumber" type="String" />
+		<property name="dealers" type="java.util.List&lt;my.training.facades.dealer.data.DealerData>" />
+	</bean>
+
+
+
+	<bean class="my.training.facades.recall.data.RecallListData">
+		<property name="recalls" type="java.util.List&lt;my.training.facades.recall.data.RecallData>" />
+	</bean>
+
+
+
+
+</beans>

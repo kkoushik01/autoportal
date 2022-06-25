@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at 22-Jun-2022, 3:59:54 PM                     ---
+ * --- Generated at 25-Jun-2022, 12:35:40 PM                    ---
  * ----------------------------------------------------------------
  */
 package my.training.initialdata.constants;

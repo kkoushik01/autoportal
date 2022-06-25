@@ -3,6 +3,8 @@
  */
 package my.training.facades.dealer;
 
+import java.util.List;
+
 import my.training.facades.recall.data.RecallData;
 
 
@@ -15,6 +17,6 @@ public interface RecallFacade
 {
 	void saveOrUpdate(RecallData recallDetails);
 
-	public RecallData getRecallModels();
+	public List<RecallData> getRecallModels();
 
 }

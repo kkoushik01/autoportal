@@ -4,6 +4,8 @@
 
 package my.training.core.dealer.dao;
 
+import java.util.List;
+
 import my.training.core.model.RecallModel;
 
 
@@ -13,7 +15,7 @@ import my.training.core.model.RecallModel;
  */
 public interface RecallDao
 {
-	public RecallModel getRecallModels(); // get recall details
+	public List<RecallModel> getRecallModels(); // get recall details
 
 }
 

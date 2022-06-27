@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at 25-Jun-2022, 12:35:40 PM                    ---
+ * --- Generated at 27-Jun-2022, 12:09:30 PM                    ---
  * ----------------------------------------------------------------
  */
 package my.training.core.jalo;
@@ -13,6 +13,8 @@ import de.hybris.platform.jalo.JaloBusinessException;
 import de.hybris.platform.jalo.JaloSystemException;
 import de.hybris.platform.jalo.SessionContext;
 import de.hybris.platform.jalo.extension.Extension;
+import de.hybris.platform.jalo.order.AbstractOrder;
+import de.hybris.platform.jalo.order.Order;
 import de.hybris.platform.jalo.product.Product;
 import de.hybris.platform.jalo.type.ComposedType;
 import de.hybris.platform.jalo.type.JaloGenericCreationException;
@@ -40,6 +42,9 @@ public abstract class GeneratedTrainingCoreManager extends Extension
 		Map<String, AttributeMode> tmp = new HashMap<String, AttributeMode>();
 		tmp.put("longDescription", AttributeMode.INITIAL);
 		ttmp.put("de.hybris.platform.jalo.product.Product", Collections.unmodifiableMap(tmp));
+		tmp = new HashMap<String, AttributeMode>();
+		tmp.put("dealer", AttributeMode.INITIAL);
+		ttmp.put("de.hybris.platform.jalo.order.Order", Collections.unmodifiableMap(tmp));
 		DEFAULT_INITIAL_ATTRIBUTES = ttmp;
 	}
 	@Override
@@ -208,6 +213,42 @@ public abstract class GeneratedTrainingCoreManager extends Extension
 	public Recall createRecall(final Map attributeValues)
 	{
 		return createRecall( getSession().getSessionContext(), attributeValues );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Order.dealer</code> attribute.
+	 * @return the dealer
+	 */
+	public Dealer getDealer(final SessionContext ctx, final Order item)
+	{
+		return (Dealer)item.getProperty( ctx, TrainingCoreConstants.Attributes.Order.DEALER);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Order.dealer</code> attribute.
+	 * @return the dealer
+	 */
+	public Dealer getDealer(final Order item)
+	{
+		return getDealer( getSession().getSessionContext(), item );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Order.dealer</code> attribute. 
+	 * @param value the dealer
+	 */
+	public void setDealer(final SessionContext ctx, final Order item, final Dealer value)
+	{
+		item.setProperty(ctx, TrainingCoreConstants.Attributes.Order.DEALER,value);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Order.dealer</code> attribute. 
+	 * @param value the dealer
+	 */
+	public void setDealer(final Order item, final Dealer value)
+	{
+		setDealer( getSession().getSessionContext(), item, value );
 	}
 	
 	@Override

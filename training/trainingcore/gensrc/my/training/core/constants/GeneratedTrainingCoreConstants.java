@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at 25-Jun-2022, 12:35:40 PM                    ---
+ * --- Generated at 27-Jun-2022, 12:09:30 PM                    ---
  * ----------------------------------------------------------------
  */
 package my.training.core.constants;
@@ -26,6 +26,10 @@ public class GeneratedTrainingCoreConstants
 	}
 	public static class Attributes
 	{
+		public static class Order
+		{
+			public static final String DEALER = "dealer".intern();
+		}
 		public static class Product
 		{
 			public static final String LONGDESCRIPTION = "longDescription".intern();

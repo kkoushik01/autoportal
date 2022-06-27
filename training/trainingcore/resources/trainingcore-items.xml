@@ -176,6 +176,16 @@
 					</attribute>
 				</attributes>
 			</itemtype>
+			
+			
+			<itemtype code="Order" autocreate="false" generate="false">
+				<attributes>
+					 <attribute qualifier="dealer" type="Dealer">
+                        <persistence type="property" />
+                        <modifiers read="true" write="true" search="true" />
+                    </attribute> 
+				</attributes>
+			</itemtype>
 		</typegroup>
 	</itemtypes>
 </items>

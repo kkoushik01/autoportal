@@ -42,13 +42,13 @@ public class RecallController extends BaseController
 	private RecallFacade recallFacade;
 
 
-
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	@ResponseBody
 	@ApiOperation(nickname = "getRecalls", value = "Get Recalls", notes = "Return Recalls.")
 	@ApiBaseSiteIdParam
 
-	public RecallWsDTO saveOrUpdate(@RequestBody final RecallData recallDetails)
+	public RecallWsDTO saveOrUpdate(@RequestBody
+	final RecallData recallDetails)
 	{
 		recallFacade.saveOrUpdate(recallDetails);
 		return null;
@@ -58,16 +58,15 @@ public class RecallController extends BaseController
 	@GetMapping(value = "/getRecalls", consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ApiBaseSiteIdAndUserIdParam
 	@ResponseBody
-	public RecallWsDTO getRecallDetails(@ApiFieldsParam @RequestParam(defaultValue = DEFAULT_FIELD_SET) final String fields)
+	public RecallWsDTO getRecallDetails(@ApiFieldsParam
+	@RequestParam(defaultValue = DEFAULT_FIELD_SET)
+	final String fields)
 	{
 		{
 			final List<RecallData> recallData = recallFacade.getRecallModels();
 			return getDataMapper().map(recallData, RecallWsDTO.class, fields);
 		}
 	}
-
-
-
 
 
 	@RequestMapping("/listRecalls")
@@ -100,7 +99,6 @@ public class RecallController extends BaseController
 	{
 		this.recallFacade = recallFacade;
 	}
-
 
 }
 

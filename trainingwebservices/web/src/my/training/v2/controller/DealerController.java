@@ -51,6 +51,22 @@ public class DealerController extends BaseController
 	}
 
 
+	@RequestMapping(value = "/getDealerByCode", method = RequestMethod.GET)
+	@ResponseBody
+	@ApiBaseSiteIdAndUserIdParam
+	public DealerWsDTO getDealerDetailsByCode(@RequestParam(required = true)
+	final String dealerCode, @ApiParam(value = "dealerCode", required = true)
+	@PathVariable
+	@ApiFieldsParam
+	@RequestParam(defaultValue = DEFAULT_FIELD_SET)
+	final String fields)
+	{
+		{
+			final DealerData dealerCodeById = dealerFacade.getDealerDetailsByCode(dealerCode);
+			return getDataMapper().map(dealerCodeById, DealerWsDTO.class, fields);
+		}
+	}
+
 
 
 	@GetMapping(value = "/dealersList", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -72,20 +88,6 @@ public class DealerController extends BaseController
 
 	}
 
-
-
-	@RequestMapping(value = "/getDealerByCode", method = RequestMethod.GET)
-	@ResponseBody
-	@ApiBaseSiteIdAndUserIdParam
-	public DealerWsDTO getDealerDetailsByCode(@RequestParam(required = true) final String dealerCode,
-			@ApiParam(value = "dealerCode", required = true)
-			 @PathVariable	@ApiFieldsParam  @RequestParam(defaultValue =  DEFAULT_FIELD_SET) final String fields)
-	{
-		{
-			final DealerData dealerCodeById = dealerFacade.getDealerDetailsByCode(dealerCode);
-			return getDataMapper().map(dealerCodeById, DealerWsDTO.class, fields);
-		}
-	}
 
 
 	/**

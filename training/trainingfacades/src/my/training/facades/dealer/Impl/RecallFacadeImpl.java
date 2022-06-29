@@ -43,9 +43,22 @@ public class RecallFacadeImpl implements RecallFacade
 		recallData.setRecallReason(recallDetails.getRecallReason());
 		recallData.setVehicleMake(recallDetails.getVehicleMake());
 		modelService.save(recallData);
-
-
 	}
+
+
+
+
+
+	@Override
+	public RecallData getRecallById(final String id)
+	{
+		final RecallModel recallModels = recallService.getRecallById(id);
+		return recallConverter.convert(recallModels);
+	}
+
+
+
+
 
 	@Override
 	public List<RecallData> getRecallModels()
@@ -112,6 +125,8 @@ public class RecallFacadeImpl implements RecallFacade
 	{
 		this.recallService = recallService;
 	}
+
+
 
 
 

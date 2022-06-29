@@ -24,6 +24,17 @@ public class RecallDaoImpl implements RecallDao
 	private FlexibleSearchService flexibleSearchService;
 
 
+
+	@Override
+	public RecallModel getRecallById(final String id)
+	{
+		final String query = "select {pk} from{recall}";
+		final FlexibleSearchQuery flexibleSearchQuery = new FlexibleSearchQuery(query);
+		final SearchResult<RecallModel> search = getFlexibleSearchService().search(flexibleSearchQuery);
+		return search.getResult().get(0);
+	}
+
+
 	@Override
 	public List<RecallModel> getRecallModels()
 	{
@@ -32,6 +43,7 @@ public class RecallDaoImpl implements RecallDao
 		final SearchResult<RecallModel> search = getFlexibleSearchService().search(flexibleSearchQuery);
 		return search.getResult();
 	}
+
 
 
 	/**

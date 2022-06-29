@@ -14,6 +14,7 @@ import javax.annotation.Resource;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,11 +22,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import my.training.facades.dealer.RecallFacade;
 import my.training.facades.recall.data.RecallData;
-import my.training.facades.recall.data.RecallListData;
 import my.training.v2.controller.recall.dto.RecallListWsDTO;
 import my.training.v2.controller.recall.dto.RecallWsDTO;
+
 
 
 /**
@@ -55,29 +57,35 @@ public class RecallController extends BaseController
 	}
 
 
+
+
+	@RequestMapping(value = "/getRecallById", method = RequestMethod.GET)
+	@ResponseBody
+	@ApiBaseSiteIdAndUserIdParam
+	public RecallWsDTO getRecallById(@RequestParam(required = true) final String id,
+			 @ApiParam(value = "dealerCode", required = true)
+	       @PathVariable	@ApiFieldsParam @RequestParam(defaultValue =  DEFAULT_FIELD_SET)  final String fields)
+	{
+		final RecallData recallById = recallFacade.getRecallById(id);
+		return getDataMapper().map(recallById, RecallWsDTO.class, fields);
+	}
+
+
+
+
 	@GetMapping(value = "/getRecalls", consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ApiBaseSiteIdAndUserIdParam
 	@ResponseBody
-	public RecallWsDTO getRecallDetails(@ApiFieldsParam
+	public RecallListWsDTO getRecallDetails(@ApiFieldsParam
 	@RequestParam(defaultValue = DEFAULT_FIELD_SET)
 	final String fields)
 	{
 		{
 			final List<RecallData> recallData = recallFacade.getRecallModels();
-			return getDataMapper().map(recallData, RecallWsDTO.class, fields);
+			return getDataMapper().map(recallData, RecallListWsDTO.class, fields);
 		}
 	}
 
-
-	@RequestMapping("/listRecalls")
-	@ResponseBody
-	public RecallListWsDTO getRecallsById(final String fields)
-	{
-		final List<RecallData> recall = recallFacade.getRecallModels();
-		final RecallListData recallListData = new RecallListData();
-		recallListData.setRecalls(recall);
-		return getDataMapper().map(recallListData, RecallListWsDTO.class, fields);
-	}
 
 
 

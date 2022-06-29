@@ -25,11 +25,23 @@ public class RecallServiceImpl implements RecallService
 	private ModelService modelService;
 
 
+
+	@Override
+	public RecallModel getRecallById(final String id)
+	{
+		final RecallModel recallModel = recallDao.getRecallById(id);
+		return recallModel;
+	}
+
+
+
 	@Override
 	public List<RecallModel> getRecallModels()
 	{
 		return recallDao.getRecallModels();
 	}
+
+
 
 	/**
 	 * @return the recallDao
@@ -67,6 +79,8 @@ public class RecallServiceImpl implements RecallService
 	{
 		this.modelService = modelService;
 	}
+
+
 
 }
 

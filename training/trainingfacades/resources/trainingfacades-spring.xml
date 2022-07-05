@@ -223,7 +223,6 @@
     
    
     
-    
     <bean id="recallFacade" class="my.training.facades.dealer.Impl.RecallFacadeImpl" >
 	<property name="modelService" ref="modelService"/>
 	<property name="recallService" ref="recallService"/>
@@ -231,7 +230,6 @@
 	</bean>
 	
 	 <bean id="recallConverter" parent="abstractPopulatingConverter">
-     <!--    <property name="targetClass" value="my.training.core.model.RecallModel" /> -->
         <property name="targetClass" value="my.training.facades.recall.data.RecallData" />
         <property name="populators">
             <list>
@@ -241,6 +239,7 @@
     </bean>
 	 
 	<bean id="recallPopulator" class="my.training.facades.dealer.populator.RecallPopulator"/>
+
 	
     <bean id="defaultrecallConverter" parent="abstractPopulatingConverter"> 
         <property name="targetClass" value="my.training.facades.recall.data.RecallData" />

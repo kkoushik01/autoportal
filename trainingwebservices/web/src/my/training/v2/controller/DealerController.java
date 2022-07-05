@@ -3,7 +3,6 @@ package my.training.v2.controller;
 import de.hybris.platform.webservicescommons.swagger.ApiBaseSiteIdAndUserIdParam;
 import de.hybris.platform.webservicescommons.swagger.ApiFieldsParam;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -24,7 +23,6 @@ import io.swagger.annotations.ApiParam;
 import my.training.facades.dealer.DealerFacade;
 import my.training.facades.dealer.data.DealerData;
 import my.training.facades.dealer.data.DealerListData;
-import my.training.facades.recall.data.RecallData;
 import my.training.v2.controller.dealer.dto.DealerListWsDTO;
 import my.training.v2.controller.dealer.dto.DealerWsDTO;
 
@@ -60,12 +58,12 @@ public class DealerController extends BaseController
 	@ApiFieldsParam
 	@RequestParam(defaultValue = DEFAULT_FIELD_SET)
 	final String fields)
-	{
+
 		{
 			final DealerData dealerCodeById = dealerFacade.getDealerDetailsByCode(dealerCode);
 			return getDataMapper().map(dealerCodeById, DealerWsDTO.class, fields);
 		}
-	}
+
 
 
 
@@ -82,7 +80,7 @@ public class DealerController extends BaseController
 
 		dealerDataList.setDealers(dealersData);
 
-		final List<RecallData> recallData = new ArrayList<>();
+		//final List<RecallData> recallData = new ArrayList<>();
 
 		return getDataMapper().map(dealerDataList, DealerListWsDTO.class, fields);
 

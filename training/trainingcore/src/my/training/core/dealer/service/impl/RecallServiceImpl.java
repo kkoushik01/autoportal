@@ -27,9 +27,9 @@ public class RecallServiceImpl implements RecallService
 
 
 	@Override
-	public RecallModel getRecallById(final String id)
+	public RecallModel getRecallById(final String recallCode)
 	{
-		final RecallModel recallModel = recallDao.getRecallById(id);
+		final RecallModel recallModel = recallDao.getRecallById(recallCode);
 		return recallModel;
 	}
 

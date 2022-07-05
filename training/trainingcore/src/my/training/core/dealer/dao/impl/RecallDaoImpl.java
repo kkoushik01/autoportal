@@ -26,7 +26,7 @@ public class RecallDaoImpl implements RecallDao
 
 
 	@Override
-	public RecallModel getRecallById(final String id)
+	public RecallModel getRecallById(final String recallCode)
 	{
 		final String query = "select {pk} from{recall}";
 		final FlexibleSearchQuery flexibleSearchQuery = new FlexibleSearchQuery(query);

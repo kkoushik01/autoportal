@@ -60,7 +60,7 @@
 		<property name="vehicleMake" type="String" />
 		<property name="recallReason" type="String" />
 		<property name="chassisNumber" type="String" />
-		<property name="dealers" type="java.util.List&lt;my.training.facades.dealer.data.DealerData>" />
+		<!-- <property name="dealers" type="java.util.List&lt;my.training.facades.dealer.data.DealerData>" /> -->
 	</bean>
 
 

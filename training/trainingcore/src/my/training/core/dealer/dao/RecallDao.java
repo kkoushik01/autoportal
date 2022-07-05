@@ -16,7 +16,7 @@ import my.training.core.model.RecallModel;
 public interface RecallDao
 
 {
-	public RecallModel getRecallById(String id); // get recall details by id
+	public RecallModel getRecallById(String recallCode); // get recall details by id
 
 	public List<RecallModel> getRecallModels(); // get recall details
 

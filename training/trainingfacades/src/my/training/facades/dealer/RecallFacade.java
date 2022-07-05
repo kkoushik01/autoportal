@@ -17,7 +17,7 @@ public interface RecallFacade
 {
 	void saveOrUpdate(RecallData recallDetails);
 
-	public RecallData getRecallById(String id);
+	public RecallData getRecallById(String recallCode);
 
 	public List<RecallData> getRecallModels();
 

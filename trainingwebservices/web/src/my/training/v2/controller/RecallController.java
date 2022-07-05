@@ -25,6 +25,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import my.training.facades.dealer.RecallFacade;
 import my.training.facades.recall.data.RecallData;
+import my.training.facades.recall.data.RecallListData;
 import my.training.v2.controller.recall.dto.RecallListWsDTO;
 import my.training.v2.controller.recall.dto.RecallWsDTO;
 
@@ -59,14 +60,17 @@ public class RecallController extends BaseController
 
 
 
-	@RequestMapping(value = "/getRecallById", method = RequestMethod.GET)
+	@GetMapping(value = "/getRecallById", consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ApiBaseSiteIdAndUserIdParam
-	public RecallWsDTO getRecallById(@RequestParam(required = true) final String id,
-			 @ApiParam(value = "dealerCode", required = true)
-	       @PathVariable	@ApiFieldsParam @RequestParam(defaultValue =  DEFAULT_FIELD_SET)  final String fields)
+	public RecallWsDTO getRecallById(@RequestParam(required = true)
+	final String recallCode, @ApiParam(value = "recallId", required = true)
+	@PathVariable
+	@ApiFieldsParam
+	@RequestParam(defaultValue = DEFAULT_FIELD_SET)
+	final String fields)
 	{
-		final RecallData recallById = recallFacade.getRecallById(id);
+		final RecallData recallById = recallFacade.getRecallById(recallCode);
 		return getDataMapper().map(recallById, RecallWsDTO.class, fields);
 	}
 
@@ -80,10 +84,10 @@ public class RecallController extends BaseController
 	@RequestParam(defaultValue = DEFAULT_FIELD_SET)
 	final String fields)
 	{
-		{
 			final List<RecallData> recallData = recallFacade.getRecallModels();
-			return getDataMapper().map(recallData, RecallListWsDTO.class, fields);
-		}
+			final RecallListData recallListData = new RecallListData();
+			recallListData.setRecalls(recallData);
+			return getDataMapper().map(recallListData, RecallListWsDTO.class, fields);
 	}
 
 

@@ -25,7 +25,21 @@ INSERT_UPDATE Product	;$catalogVersion	;code[unique=true]	;name[lang=en]		;descr
 
 						
 # Product catalog
-INSERT_UPDATE ECarProduct ;$catalogVersion  ;code[unique=true] 	    ;name[lang=en]	 	;description[lang=en]	 							
-						  ;			        ;ECar001                ;BEV                ;Battery electric vehicle
-						  ;					;ECar002			    ;HEV      		    ;Hybrid electric vehicle
-						  ;					;ECar003			    ;FCEV				;Fuel cell electric vehicle
+						  
+INSERT_UPDATE ECarProduct ;$catalogVersion  ;code[unique=true] 	    ;type	 	;description[lang=en]      ;voltage	 		  ;cost       ;warranty      ;capacity		 ;temperature        ;serviceLife     ;cycleLife        	
+						  ;			        ;1412001                ;BEV        ;Battery type              ;120v              ;200$       ;1yr           ;3500mah        ;upto 40c           ;10yrs           ;500 charge cycles
+						  ;					;1412002			    ;HEV        ;Hybrid type 			   ;120v              ;300$       ;1yr           ;3500mah        ;upto 40c           ;10yrs           ;500 charge cycles
+						  ;					;1412003			    ;FCEV	    ;Fuelcell type             ;120v              ;400$       ;1yr           ;4000mah        ;upto 40c           ;10yrs           ;500 charge cycles
+						
+						  
+						  
+						  
+						  
+						  
+						  
+						  
+						  
+						  
+						  
+						  
+						  

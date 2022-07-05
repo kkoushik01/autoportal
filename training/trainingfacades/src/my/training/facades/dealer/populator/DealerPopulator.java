@@ -23,9 +23,19 @@ public class DealerPopulator implements Populator<DealerModel, DealerData>
 
 	private Converter<RecallModel, RecallData> recallConverter;
 
-	private Converter<DealerModel, DealerData> dealerConverter;
 
 	private DealerService dealerService;
+
+
+	@Override
+	public void populate(final DealerModel source, final DealerData target) throws ConversionException
+	{
+
+		target.setDealerCode(source.getDealerCode());
+		target.setDealerName(source.getDealerName());
+		target.setRecalls(recallConverter.convertAll(source.getRecalls()));
+	}
+
 
 
 
@@ -48,29 +58,6 @@ public class DealerPopulator implements Populator<DealerModel, DealerData>
 	}
 
 
-
-	/**
-	 * @return the dealerConverter
-	 */
-	public Converter<DealerModel, DealerData> getDealerConverter()
-	{
-		return dealerConverter;
-	}
-
-
-
-	/**
-	 * @param dealerConverter
-	 *           the dealerConverter to set
-	 */
-	public void setDealerConverter(final Converter<DealerModel, DealerData> dealerConverter)
-	{
-		this.dealerConverter = dealerConverter;
-	}
-
-
-
-
 	/**
 	 * @return the dealerService
 	 */
@@ -88,19 +75,6 @@ public class DealerPopulator implements Populator<DealerModel, DealerData>
 	{
 		this.dealerService = dealerService;
 	}
-
-
-
-
-	@Override
-	public void populate(final DealerModel source, final DealerData target) throws ConversionException
-	{
-
-		target.setDealerCode(source.getDealerCode());
-		target.setDealerName(source.getDealerName());
-		target.setRecalls(recallConverter.convertAll(source.getRecalls()));
-	}
-
 
 
 

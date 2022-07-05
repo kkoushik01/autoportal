@@ -50,9 +50,9 @@ public class RecallFacadeImpl implements RecallFacade
 
 
 	@Override
-	public RecallData getRecallById(final String id)
+	public RecallData getRecallById(final String recallCode)
 	{
-		final RecallModel recallModels = recallService.getRecallById(id);
+		final RecallModel recallModels = recallService.getRecallById(recallCode);
 		return recallConverter.convert(recallModels);
 	}
 

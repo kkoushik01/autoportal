@@ -16,7 +16,7 @@ import my.training.core.model.RecallModel;
 public interface RecallService
 {
 
-	public RecallModel getRecallById(String id);
+	public RecallModel getRecallById(String recallCode);
 
 	public List<RecallModel> getRecallModels();
 }
